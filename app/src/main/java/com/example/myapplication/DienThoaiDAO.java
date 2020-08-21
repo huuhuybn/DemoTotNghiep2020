@@ -54,7 +54,7 @@ public class DienThoaiDAO {
         return cars;
     }
 
-    public void suaDienThoai(DienThoai dienThoai) {
+    public long suaDienThoai(DienThoai dienThoai) {
         // xin quyen
         SQLiteDatabase sqLiteDatabase = sqliteHelper.getWritableDatabase();
         // ghep cap gia tri
@@ -64,9 +64,8 @@ public class DienThoaiDAO {
 
         // truy van them
 
-        sqLiteDatabase.update("car", contentValues, "id=?"
+        return sqLiteDatabase.update("car", contentValues, "id=?"
                 , new String[]{dienThoai.id});
-
 
     }
 

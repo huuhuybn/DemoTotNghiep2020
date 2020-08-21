@@ -23,6 +23,7 @@ public class CarAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, final ViewGroup viewGroup) {
+
         view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item,
                         viewGroup, false);
@@ -40,7 +41,6 @@ public class CarAdapter extends BaseAdapter {
                         new SqliteHelper(viewGroup.getContext());
                 DienThoaiDAO dienThoaiDAO =
                         new DienThoaiDAO(sqliteHelper);
-
                 dienThoaiDAO.xoa(car.id);
             }
         });

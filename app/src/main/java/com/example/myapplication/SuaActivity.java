@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SuaActivity extends AppCompatActivity {
 
@@ -35,7 +36,11 @@ public class SuaActivity extends AppCompatActivity {
                 dienThoai.name = nhapTen.getText().toString();
                 dienThoai.price = nhapGia.getText().toString();
 
-                dienThoaiDAO.suaDienThoai(dienThoai);
+                long kq = dienThoaiDAO.suaDienThoai(dienThoai);
+                if (kq > 0) Toast.makeText(SuaActivity.this,"Sua thanh cong",
+                        Toast.LENGTH_SHORT).show();
+                else Toast.makeText(SuaActivity.this,"Sua ko thanh cong",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
